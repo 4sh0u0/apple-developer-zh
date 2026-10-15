@@ -875,7 +875,7 @@
     "Select a Services ID to be a part of your Account & Organizational Data Sharing grouping.": "选择要纳入“账户和组织数据共享”分组的 Services ID。",
     "No Services IDs are available.": "没有可用的 Services ID。",
     "You need a Services ID to complete configuration.": "你需要一个 Services ID 才能完成配置。",
-    "Create Services ID": "创建 Services ID",
+    "Create Services ID": "创建服务 ID",
     "Create Maps Token": "创建地图令牌",
     "Token Type": "令牌类型",
     "Embed API": "Embed API",
@@ -1133,7 +1133,7 @@
     const out = translateNorm(normalize(raw));
     if (out === null) return null;
     // 译文以中文标点开头时（如片段 " will be displayed." → "。"），丢掉原文的前导空白，避免出现「ID 。」
-    const lead = /^[。，、：；！？）」』】]/.test(out) ? '' : /^\s*/.exec(raw)[0];
+    const lead = /^[。，、：；！？（）「」『』【】]/.test(out) ? '' : /^\s*/.exec(raw)[0];
     const trail = /\s*$/.exec(raw)[0];
     return lead + out + trail;
   }

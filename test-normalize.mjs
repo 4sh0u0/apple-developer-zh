@@ -171,6 +171,10 @@ for (const name of ['ui-strings-2.json', 'ui-strings-3.json']) {
   console.log(`${name}：${total} 条全部命中`);
 }
 
+// 译文以全角左括号开头时也丢掉前导空白（「端点（可选）」）
+eq(translateRaw(' (Optional)'), '（可选）', '全角括号前不留空格');
+eq(translateNorm('Create Services ID'), '创建服务 ID', '服务 ID 用词统一');
+
 // DICT 区块必须是合法 JSON，且位于标记之间
 const m = /\/\/ ==DICT START==\s*const DICT = (\{[\s\S]*?\});\s*\/\/ ==DICT END==/.exec(src);
 assert.ok(m, '找不到 DICT 标记');
