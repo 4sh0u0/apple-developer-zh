@@ -1,0 +1,14 @@
+{
+  "name": "apple-developer-zh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Apple Developer 账户页面中文化油猴脚本",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "node --check apple-developer-zh.user.js && node test-normalize.mjs && node test-dom.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "24.1.3"
+  }
+}
