@@ -151,6 +151,14 @@ if (existsSync(u2)) {
   console.log('（未找到 source/ui-strings-2.json，跳过采集稿覆盖检查）');
 }
 
+// 「前缀: 值」规则：值在词典中时一并翻译（拼接后的弹窗标题）
+eq(translateNorm('Sign In with Apple: App ID Configuration'), '通过 Apple 登录：App ID 配置', '前缀与值都翻译');
+eq(translateJoined(['Sign In with Apple', ': App ID Configuration']), '通过 Apple 登录：App ID 配置', '拼接后的弹窗标题');
+eq(translateNorm('Team ID: ABC123DEF4'), '团队 ID：ABC123DEF4', '值不在词典时保留原样');
+// 译文以中文标点开头时丢掉前导空白
+eq(translateRaw(' will be displayed.'), '。', '片段句号不带前导空格');
+eq(translateRaw('  Certificates'), '  证书', '普通译文仍保留前导空白');
+
 // DICT 区块必须是合法 JSON，且位于标记之间
 const m = /\/\/ ==DICT START==\s*const DICT = (\{[\s\S]*?\});\s*\/\/ ==DICT END==/.exec(src);
 assert.ok(m, '找不到 DICT 标记');

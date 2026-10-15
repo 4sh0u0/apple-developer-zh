@@ -281,6 +281,7 @@
     "Shared with You": "与你共享",
     "Side Button Access": "侧边按钮访问",
     "Sign In with Apple": "通过 Apple 登录",
+    "App ID Configuration": "App ID 配置",
     "SIM Inserted for Wireless Carriers": "已插入移动通信运营商 SIM 卡",
     "Siri": "Siri",
     "Spatial Audio Profile": "空间音频配置信息",
@@ -981,7 +982,7 @@
       /^([A-Za-z][A-Za-z ()]{1,30}?)\s*:\s*(.+)$/,
       (m, label, value) => {
         const p = lookup(label);
-        return p === null ? null : `${p}：${value}`;
+        return p === null ? null : `${p}：${lookup(value) ?? value}`;
       },
     ],
     // 多选计数："1 of 5 item(s) selected"（React 常拆成多个相邻文本节点，由 processJoined 拼接后命中）
@@ -1069,7 +1070,8 @@
   function translateRaw(raw) {
     const out = translateNorm(normalize(raw));
     if (out === null) return null;
-    const lead = /^\s*/.exec(raw)[0];
+    // 译文以中文标点开头时（如片段 " will be displayed." → "。"），丢掉原文的前导空白，避免出现「ID 。」
+    const lead = /^[。，、：；！？）」』】]/.test(out) ? '' : /^\s*/.exec(raw)[0];
     const trail = /\s*$/.exec(raw)[0];
     return lead + out + trail;
   }
