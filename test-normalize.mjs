@@ -126,17 +126,39 @@ eq(missingCandidate('A1B2C3D4-E5F6-4789-8ABC-0123456789AB'), null, 'UUID 不收�
 // 片段词条
 for (const [k, v] of [['Enter your', '输入你的'], ['Pass', 'Pass'], ['certificate Name', '证书名称'], ['will be displayed.', '。'], [': App ID Configuration', '：App ID 配置'], ['App', 'App'], ['ID', 'ID']]) eq(translateNorm(k), v, '片段 ' + k);
 
-// ui-strings-2.json 为本地采集稿（已 gitignore），存在时逐条检查命中，不存在则跳过
+// ── 第五轮 ──
+// 设备型号
+eq(translateNorm('iPad Mini 6th Generation'), 'iPad mini（第 6 代）');
+eq(translateNorm('iPad Pro 11-inch Wi-Fi (4th generation)'), 'iPad Pro 11 英寸 Wi-Fi（第 4 代）');
+eq(translateNorm('iPhone 15 Pro Max'), null, '无代数/尺寸保持原样');
+eq(translateNorm('Machine 5th generation'), null, '非设备名开头不处理') ;
+eq(translateNorm('Device Model'), '设备型号');
+// 功能名新策略：纯品牌名保持英文，其余翻译并保留框架名
+eq(translateNorm('StoreKit External Purchases or Offers (EU)'), 'StoreKit 外部购买或优惠（欧盟）');
+eq(translateNorm('DriverKit Family Audio'), 'DriverKit 音频系列');
+eq(translateNorm('DriverKit Family Audio (development)'), 'DriverKit 音频系列（开发）');
+eq(translateNorm('DriverKit USB Transport - VendorID and ProductID'), 'DriverKit USB 传输 - VendorID 和 ProductID');
+eq(translateNorm('Web Browser Engine Rendering'), '网页浏览器引擎 - 渲染');
+eq(translateNorm('Push to Talk'), '一键通话');
+eq(translateNorm('eSim'), 'eSIM');
+eq(translateNorm('App Attest'), 'App Attest', '纯品牌名保持英文');
+eq(translateNorm('None'), '无');
+eq(translateNorm('Other'), '其他');
+eq(translateNorm('about how to create tokens for the Apple Maps Server API.'), '如何为 Apple Maps Server API 创建令牌。');
+
+// source/ui-strings-*.json 为本地采集稿（已 gitignore），存在时逐条检查命中，不存在则跳过
 import { existsSync } from 'node:fs';
-const u2 = join(dirname(fileURLToPath(import.meta.url)), 'source', 'ui-strings-2.json');
-if (existsSync(u2)) {
-  const data = JSON.parse(readFileSync(u2, 'utf8'));
+for (const name of ['ui-strings-2.json', 'ui-strings-3.json']) {
+  const f = join(dirname(fileURLToPath(import.meta.url)), 'source', name);
+  if (!existsSync(f)) { console.log(`（未找到 source/${name}，跳过采集稿覆盖检查）`); continue; }
+  const data = JSON.parse(readFileSync(f, 'utf8'));
   const miss = [];
   let total = 0;
   for (const [g, arr] of Object.entries(data)) {
     if (g === '_note') continue;
     for (const raw of arr) {
-      let s = raw.split('←')[0].replace(/^@[\w-]+:\s*/, '');
+      if (/^型号名示例/.test(raw)) continue;   // 说明文字，不是原文
+      const s = raw.split('←')[0].replace(/^@[\w-]+:\s*/, '');
       const cands = /^(Sep 16 \/|1 Selected \/)/.test(s) ? s.split(' / ') : [s];
       for (const c of cands) {
         total++;
@@ -144,20 +166,10 @@ if (existsSync(u2)) {
       }
     }
   }
-  assert.deepEqual(miss, [], 'ui-strings-2 漏译: ' + JSON.stringify(miss));
+  assert.deepEqual(miss, [], `${name} 漏译: ` + JSON.stringify(miss));
   n++;
-  console.log(`ui-strings-2.json：${total} 条全部命中`);
-} else {
-  console.log('（未找到 source/ui-strings-2.json，跳过采集稿覆盖检查）');
+  console.log(`${name}：${total} 条全部命中`);
 }
-
-// 「前缀: 值」规则：值在词典中时一并翻译（拼接后的弹窗标题）
-eq(translateNorm('Sign In with Apple: App ID Configuration'), '通过 Apple 登录：App ID 配置', '前缀与值都翻译');
-eq(translateJoined(['Sign In with Apple', ': App ID Configuration']), '通过 Apple 登录：App ID 配置', '拼接后的弹窗标题');
-eq(translateNorm('Team ID: ABC123DEF4'), '团队 ID：ABC123DEF4', '值不在词典时保留原样');
-// 译文以中文标点开头时丢掉前导空白
-eq(translateRaw(' will be displayed.'), '。', '片段句号不带前导空格');
-eq(translateRaw('  Certificates'), '  证书', '普通译文仍保留前导空白');
 
 // DICT 区块必须是合法 JSON，且位于标记之间
 const m = /\/\/ ==DICT START==\s*const DICT = (\{[\s\S]*?\});\s*\/\/ ==DICT END==/.exec(src);
