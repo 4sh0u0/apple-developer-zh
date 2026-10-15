@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Apple Developer 账户中文化
 // @namespace    https://github.com/4sh0u0/apple-developer-zh
-// @version      1.2.0
+// @version      1.2.1
 // @description  把 Apple 开发者账户里只有英文的「证书、标识符和描述文件」等页面翻译成简体中文；采用 Apple 官方译法，纯本地词典，不发起任何网络请求。
 // @author       4sh0u0
 // @license      MIT
@@ -831,6 +831,12 @@
     "All Sources": "所有来源",
     "Domain": "域名",
     "Email address": "电子邮件地址",
+    "Register your email sources": "注册你的电子邮件来源",
+    "All email addresses associated with your registered domains will be able to send and receive messages to and from customers using Apple's private email relay service.": "与你已注册域名关联的所有电子邮件地址，都能通过 Apple 的私人电子邮件中转服务与顾客互通邮件。",
+    "Domains and Subdomains": "域名和子域名",
+    "Enter a comma delimited list of domains and subdomains.": "输入以逗号分隔的域名和子域名列表。",
+    "Email Addresses": "电子邮件地址",
+    "Enter a comma delimited list of email addresses.": "输入以逗号分隔的电子邮件地址列表。",
     "No result found.": "未找到结果。",
     "View Key": "查看密钥",
     "Configure Key": "配置密钥",

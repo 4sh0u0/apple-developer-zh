@@ -175,6 +175,10 @@ for (const name of ['ui-strings-2.json', 'ui-strings-3.json']) {
 eq(translateRaw(' (Optional)'), '（可选）', '全角括号前不留空格');
 eq(translateNorm('Create Services ID'), '创建服务 ID', '服务 ID 用词统一');
 
+// 添加电子邮件来源表单：<h2> 内 "Register your " + "email sources" 两个相邻文本节点拼接后命中
+eq(translateJoined(['Register your ', 'email sources']), '注册你的电子邮件来源', '邮件来源标题拼接');
+eq(translateNorm('Domains and Subdomains'), '域名和子域名', '域名和子域名');
+
 // DICT 区块必须是合法 JSON，且位于标记之间
 const m = /\/\/ ==DICT START==\s*const DICT = (\{[\s\S]*?\});\s*\/\/ ==DICT END==/.exec(src);
 assert.ok(m, '找不到 DICT 标记');
