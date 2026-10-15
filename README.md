@@ -61,4 +61,4 @@ npm test
 
 ## 许可证
 
-[MIT](LICENSE)
+[MIT](https://github.com/4sh0u0/apple-developer-zh/blob/main/LICENSE)
