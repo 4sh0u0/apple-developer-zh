@@ -14,7 +14,9 @@
 ## 安装
 
 1. 在浏览器里安装 [Tampermonkey](https://www.tampermonkey.net/) 或 [Violentmonkey](https://violentmonkey.github.io/)。
-2. 打开 [`apple-developer-zh.user.js`](https://github.com/4sh0u0/apple-developer-zh/raw/main/apple-developer-zh.user.js)，扩展会弹出安装确认，点「安装」即可。
+2. 安装脚本，任选一种：
+   - **Greasy Fork（推荐）**：打开 [Apple Developer 账户中文化](https://greasyfork.org/scripts/600315)，点「安装此脚本」。以后的更新会自动推送。
+   - **GitHub**：打开 [`apple-developer-zh.user.js`](https://github.com/4sh0u0/apple-developer-zh/raw/main/apple-developer-zh.user.js)，扩展会弹出安装确认。
 3. 打开 [证书列表](https://developer.apple.com/account/resources/certificates/list)，刷新页面，界面就是中文了。
 
 ## 使用
