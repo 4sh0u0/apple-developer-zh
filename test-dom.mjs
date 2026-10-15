@@ -8,6 +8,7 @@ const scriptPath = fileURLToPath(new URL('./apple-developer-zh.user.js', import.
 
 const html = `<!doctype html><html><head><title>Certificates, Identifiers &amp; Profiles - Apple Developer</title></head><body>
 <div id="j"></div>
+<div id="k"></div>
 <span id="s">Certificates</span>
 <span id="d">Development, Ad hoc, App Store Connect</span>
 <span id="p">iOS, visionOS</span>
@@ -26,6 +27,9 @@ const doc = window.document;
 // 模拟 React 把一句话拆成三个相邻文本节点
 const j = doc.getElementById('j');
 ['Provisioning support', ' required', '.'].forEach((t) => j.appendChild(doc.createTextNode(t)));
+// 模拟 React 把 "{a} of {b} item(s) selected" 拆成多个相邻文本节点
+const k = doc.getElementById('k');
+['1', ' of ', '5', ' ', 'item(s) selected'].forEach((t) => k.appendChild(doc.createTextNode(t)));
 window.localStorage.setItem('appleDevZh.debug', '1');
 
 window.eval(readFileSync(scriptPath, 'utf8'));
@@ -40,6 +44,7 @@ const txt = (id) => doc.getElementById(id).textContent;
 await tick();
 eq('标题', doc.title, '证书、标识符和描述文件 - Apple 开发者');
 eq('拆分句合并', txt('j'), '需要描述文件支持。');
+eq('拆分句合并（含规则）', txt('k'), '已选择 1/5 项');
 eq('普通词条', txt('s'), '证书');
 eq('描述文件类型列表', txt('d'), '开发、Ad Hoc、App Store Connect');
 eq('平台列表不翻', txt('p'), 'iOS, visionOS');
@@ -70,6 +75,7 @@ api.toggle();
 await tick();
 eq('还原：标题', doc.title, 'Certificates, Identifiers & Profiles - Apple Developer');
 eq('还原：拆分句', txt('j'), 'Provisioning support required.');
+eq('还原：规则拼接句', txt('k'), '1 of 5 item(s) selected');
 eq('还原：改写后的文本', txt('s'), 'Devices');
 eq('还原：动态插入', dyn.textContent, 'Register a New Device');
 eq('还原：placeholder', doc.getElementById('q').getAttribute('placeholder'), 'Search');
@@ -86,6 +92,7 @@ eq('切换状态已保存', window.localStorage.getItem('appleDevZh.enabled'), '
 api.toggle();
 await tick();
 eq('再切中文：拆分句', txt('j'), '需要描述文件支持。');
+eq('再切中文：规则拼接句', txt('k'), '已选择 1/5 项');
 eq('再切中文：新内容', dyn2.textContent, '证书');
 eq('再切中文：标题', doc.title, '证书、标识符和描述文件 - Apple 开发者');
 

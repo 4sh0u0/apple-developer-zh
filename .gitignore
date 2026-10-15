@@ -1,4 +1,4 @@
 node_modules/
 .DS_Store
 # 从真实页面采集的英文原文整理稿，仅本地维护参考，不公开
-source/ui-strings.json
+source/ui-strings*.json

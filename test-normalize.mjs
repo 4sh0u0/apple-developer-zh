@@ -101,6 +101,56 @@ eq(missingCandidate('aps-environment'), null);
 eq(missingCandidate('inter-app-audio'), null);
 eq(missingCandidate('Wi-Fi Aware'), 'Wi-Fi Aware', '含空格的连字符不过滤');
 
+// ── 第四轮 ──
+// 拼接句走词典 + 规则（排除逗号列表）
+eq(translateJoined(['1', ' of ', '5', ' ', 'item(s) selected']), '已选择 1/5 项');
+eq(translateJoined(['Certificates', ', ', 'Identifiers']), null, '拼接句不走逗号列表规则');
+// 新规则
+eq(translateNorm('Sep 16'), '9月16日');
+eq(translateNorm('Oct 04'), '10月4日');
+eq(translateNorm('Sep 15 - Oct 15, 2026'), '2026年9月15日 - 10月15日', '区间规则不被短日期抢先');
+eq(translateNorm('Oct 15, 2026'), '2026年10月15日', '完整日期不受短日期影响');
+eq(translateNorm('6 App IDs'), '6 个 App ID');
+eq(translateNorm('1 Selected'), '已选择 1 项');
+eq(translateNorm('5 Selected'), '已选择 5 项');
+eq(translateNorm('2 of 5 items selected'), '已选择 2/5 项');
+eq(translateNorm('0 results available. Select is focused ,type to refine list, press Down to open the menu,'),
+  '有 0 个结果。选择框已聚焦，输入可筛选，按下方向键打开菜单。');
+eq(translateNorm('12 results available. Select is focused ,type to refine list, press Down to open the menu,'),
+  '有 12 个结果。选择框已聚焦，输入可筛选，按下方向键打开菜单。');
+// 漏译收集：放宽长度上限、过滤 UDID
+const longPara = 'Certificates issued from the Developer ID G2 intermediary certificate authority '.repeat(8).trim();
+eq(missingCandidate(longPara), normalize(longPara), '长段落可进入漏译集合');
+eq(missingCandidate('00008000-000A1B2C3D4E5F60'), null, 'UDID 不收集');
+eq(missingCandidate('A1B2C3D4-E5F6-4789-8ABC-0123456789AB'), null, 'UUID 不收集');
+// 片段词条
+for (const [k, v] of [['Enter your', '输入你的'], ['Pass', 'Pass'], ['certificate Name', '证书名称'], ['will be displayed.', '。'], [': App ID Configuration', '：App ID 配置'], ['App', 'App'], ['ID', 'ID']]) eq(translateNorm(k), v, '片段 ' + k);
+
+// ui-strings-2.json 为本地采集稿（已 gitignore），存在时逐条检查命中，不存在则跳过
+import { existsSync } from 'node:fs';
+const u2 = join(dirname(fileURLToPath(import.meta.url)), 'source', 'ui-strings-2.json');
+if (existsSync(u2)) {
+  const data = JSON.parse(readFileSync(u2, 'utf8'));
+  const miss = [];
+  let total = 0;
+  for (const [g, arr] of Object.entries(data)) {
+    if (g === '_note') continue;
+    for (const raw of arr) {
+      let s = raw.split('←')[0].replace(/^@[\w-]+:\s*/, '');
+      const cands = /^(Sep 16 \/|1 Selected \/)/.test(s) ? s.split(' / ') : [s];
+      for (const c of cands) {
+        total++;
+        if (translateNorm(normalize(c)) === null) miss.push(c);
+      }
+    }
+  }
+  assert.deepEqual(miss, [], 'ui-strings-2 漏译: ' + JSON.stringify(miss));
+  n++;
+  console.log(`ui-strings-2.json：${total} 条全部命中`);
+} else {
+  console.log('（未找到 source/ui-strings-2.json，跳过采集稿覆盖检查）');
+}
+
 // DICT 区块必须是合法 JSON，且位于标记之间
 const m = /\/\/ ==DICT START==\s*const DICT = (\{[\s\S]*?\});\s*\/\/ ==DICT END==/.exec(src);
 assert.ok(m, '找不到 DICT 标记');

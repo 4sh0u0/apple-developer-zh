@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Apple Developer 账户中文化
 // @namespace    https://github.com/4sh0u0/apple-developer-zh
-// @version      1.0.0
+// @version      1.1.0
 // @description  把 Apple 开发者账户里只有英文的「证书、标识符和描述文件」等页面翻译成简体中文；采用 Apple 官方译法，纯本地词典，不发起任何网络请求。
 // @author       4sh0u0
 // @license      MIT
@@ -689,7 +689,161 @@
     "Required": "必填",
     "Optional": "可选",
     "Terms and Conditions": "条款与条件",
-    "Copyright © Apple Inc. All rights reserved.": "版权所有 © Apple Inc. 保留一切权利。"
+    "Copyright © Apple Inc. All rights reserved.": "版权所有 © Apple Inc. 保留一切权利。",
+    "Upload a Certificate Signing Request": "上传证书签名请求",
+    "To manually generate a Certificate, you need a Certificate Signing Request (CSR) file from your Mac.": "要手动生成证书，你需要来自你的 Mac 的证书签名请求 (CSR) 文件。",
+    "Select a Developer ID Certificate Intermediary": "选择 Developer ID 证书中间机构",
+    "Certificates issued from the Developer ID G2 intermediary certificate authority (Sub-CA) are supported by Xcode 11.4.1 or later. If you need to sign software for distribution on an earlier release, you can create a certificate associated to the previous Sub-CA and turn off Automatic Signing in Xcode. Any certificates created after Feb 01, 2022 and associated to the previous Sub-CA will expire on Feb 01, 2027.": "由 Developer ID G2 中间证书颁发机构 (Sub-CA) 签发的证书受 Xcode 11.4.1 或更高版本支持。如果你需要为早期版本签名软件以供分发，可以创建与先前 Sub-CA 关联的证书，并在 Xcode 中关闭“自动签名”。2022年2月1日之后创建且与先前 Sub-CA 关联的所有证书，都将于2027年2月1日到期。",
+    "Profile Type:": "描述文件类型：",
+    "G2 Sub-CA (Xcode 11.4.1 or later)": "G2 Sub-CA（Xcode 11.4.1 或更高版本）",
+    "Previous Sub-CA": "先前的 Sub-CA",
+    "Create a new Apple Push Notification service SSL (Sandbox)": "创建新的 Apple 推送通知服务 SSL (沙盒)",
+    "Select an App ID for your Apple Push Notification service SSL Certificate (Sandbox)": "为你的 Apple 推送通知服务 SSL 证书 (沙盒) 选择 App ID",
+    "All App IDs that you want to enable for remote notifications require their own Apple Push Notification service SSL certificate. The App ID-specific SSL certificate allows your server to connect to the Apple Push Notification service. Note that only explicit App IDs with a specific Bundle Identifier can be used to create an Apple Push Notification service SSL certificate.": "所有要启用远程通知的 App ID 都需要各自的 Apple 推送通知服务 SSL 证书。App ID 专用的 SSL 证书使你的服务器能够连接到 Apple 推送通知服务。请注意，只有带有特定套装标识符的精确 App ID 才能用于创建 Apple 推送通知服务 SSL 证书。",
+    "App ID:": "App ID：",
+    "App": "App",
+    "ID": "ID",
+    "Select...": "选择...",
+    "Create a new Apple Push Notification service SSL (Sandbox & Production)": "创建新的 Apple 推送通知服务 SSL (沙盒和生产)",
+    "Select an App ID for your Apple Push Notification service SSL Certificate (Sandbox & Production)": "为你的 Apple 推送通知服务 SSL 证书 (沙盒和生产) 选择 App ID",
+    "Create a new Pass Type ID Certificate": "创建新的 Pass Type ID 证书",
+    "Enter your": "输入你的",
+    "Pass": "Pass",
+    "certificate Name": "证书名称",
+    "This name will be displayed in the portal to help manage your certificates. If a name is not provided, your": "此名称会显示在门户中，便于你管理证书。如果未提供名称，将显示你的",
+    "Pass Type ID": "Pass Type ID",
+    "will be displayed.": "。",
+    "Select a Pass Type ID for your Pass Type ID Certificate": "为你的 Pass Type ID 证书选择 Pass Type ID",
+    "Each Pass Type ID you identify within your app will require its own individual Pass Certificate. This certificate allows your notification server to connect to the Pass Type service.": "你在 App 中标识的每个 Pass Type ID 都需要各自单独的 Pass 证书。此证书使你的通知服务器能够连接到 Pass Type 服务。",
+    "Create Pass Type ID": "创建 Pass Type ID",
+    "Create a new Order Type ID Certificate": "创建新的 Order Type ID 证书",
+    "Select a Order Type ID for your Order Type ID Certificate": "为你的 Order Type ID 证书选择 Order Type ID",
+    "Create Order Type ID": "创建 Order Type ID",
+    "Create a new Website Push ID Certificate": "创建新的网站推送 ID 证书",
+    "Select a Website Push ID for your Website Push ID Certificate": "为你的网站推送 ID 证书选择网站推送 ID",
+    "Each Website Push ID you register will require its own individual Website Push Certificate. This certificate allows your notification server to connect to the Website Push service.": "你注册的每个网站推送 ID 都需要各自单独的网站推送证书。此证书使你的通知服务器能够连接到网站推送服务。",
+    "Create Website Push ID": "创建网站推送 ID",
+    "Create a new Swift Package Collection Certificate": "创建新的 Swift 软件包集合证书",
+    "Create a new Swift Package Certificate": "创建新的 Swift 软件包证书",
+    "Create a new WatchKit Services Certificate": "创建新的 WatchKit 服务证书",
+    "Select an App ID for your WatchKit Service Certificate": "为你的 WatchKit 服务证书选择 App ID",
+    "Each app you want to use WatchKit Services requires its own individual WatchKit Services certificate. The App ID-specific WatchKit Services certificate allows your notification server to connect to the WatchKit Service. Note that only explicit App IDs with a specific Bundle Identifier can be used to create a WatchKit Service Certificate.": "每个要使用 WatchKit 服务的 App 都需要各自单独的 WatchKit 服务证书。App ID 专用的 WatchKit 服务证书使你的通知服务器能够连接到 WatchKit 服务。请注意，只有带有特定套装标识符的精确 App ID 才能用于创建 WatchKit 服务证书。",
+    "Create a new VoIP Services Certificate": "创建新的 VoIP 服务证书",
+    "Select an App ID for your VoIP Service Certificate": "为你的 VoIP 服务证书选择 App ID",
+    "Each app you want to use with VoIP Services requires its own individual VoIP Services certificate. The App ID-specific VoIP Services certificate allows your notification server to connect to the VoIP Service. Note that only explicit App IDs with a specific Bundle Identifier can be used to create a VoIP Service Certificate.": "每个要使用 VoIP 服务的 App 都需要各自单独的 VoIP 服务证书。App ID 专用的 VoIP 服务证书使你的通知服务器能够连接到 VoIP 服务。请注意，只有带有特定套装标识符的精确 App ID 才能用于创建 VoIP 服务证书。",
+    "Create a new Apple Pay Payment Processing Certificate": "创建新的 Apple Pay 支付处理证书",
+    "Select a Merchant ID for your Apple Pay Payment Processing Certificate": "为你的 Apple Pay 支付处理证书选择商家 ID",
+    "Each Merchant ID you identify within your app will require its own individual Apple Pay Payment Processing Certificate. The certificate is used by Apple to encrypt transaction data sent by Apple back to the merchant.": "你在 App 中标识的每个商家 ID 都需要各自单独的 Apple Pay 支付处理证书。Apple 使用此证书对发回商家的交易数据进行加密。",
+    "Create Merchant ID": "创建商家 ID",
+    "Create a new Apple Pay Merchant Identity Certificate": "创建新的 Apple Pay 商家身份证书",
+    "Select a Merchant ID for your Apple Pay Merchant Identity Certificate": "为你的 Apple Pay 商家身份证书选择商家 ID",
+    "Each Merchant ID you identify within your app will require its own individual Apple Pay Merchant Identity Certificate. The certificate is used is used to authenticate you to Apple Pay Payment Processing servers.": "你在 App 中标识的每个商家 ID 都需要各自单独的 Apple Pay 商家身份证书。此证书用于向 Apple Pay 支付处理服务器验证你的身份。",
+    "Select a type": "选择类型",
+    "Register an App ID": "注册 App ID",
+    "We recommend using a reverse-domain name style string (i.e., com.domainname.appname). It cannot contain an asterisk (*).": "我们建议使用反向域名样式的字符串（例如 com.domainname.appname）。不能包含星号 (*)。",
+    "Register a Services ID": "注册 Services ID",
+    "Register a Pass Type ID": "注册 Pass Type ID",
+    "We recommend using a reverse-domain name style string (i.e., pass.com.example.appname).": "我们建议使用反向域名样式的字符串（例如 pass.com.example.appname）。",
+    "Register an Order Type ID": "注册 Order Type ID",
+    "We recommend using a reverse-domain name style string (i.e., order.com.example.appname).": "我们建议使用反向域名样式的字符串（例如 order.com.example.appname）。",
+    "Register a Website Push ID": "注册网站推送 ID",
+    "We recommend using a reverse-domain name style string (i.e., com.domainname.appname).": "我们建议使用反向域名样式的字符串（例如 com.domainname.appname）。",
+    "Register an iCloud Container": "注册 iCloud 容器",
+    "Register an App Group": "注册 App 小组",
+    "Register a Merchant ID": "注册商家 ID",
+    "Register a Media ID": "注册媒体 ID",
+    "Users can see this description once they integrate with your service or website.": "用户在集成你的服务或网站后即可看到此描述。",
+    "We recommend using a reverse-domain name style string (i.e., media.com.example).": "我们建议使用反向域名样式的字符串（例如 media.com.example）。",
+    "Apple Music Feed": "Apple Music Feed",
+    "Get Apple Music Feed.": "获取 Apple Music Feed。",
+    "Register a Maps ID": "注册地图 ID",
+    "We recommend using a reverse-domain name style string (i.e., maps.com.example).": "我们建议使用反向域名样式的字符串（例如 maps.com.example）。",
+    "Register a Protocol ID for your Media Sharing Extension": "为你的媒体共享扩展注册协议 ID",
+    "You must use a reverse-domain name style string with at least one dot (i.e., media-device-protocol.com.example).": "你必须使用至少包含一个点号的反向域名样式字符串（例如 media-device-protocol.com.example）。",
+    "App Group Assignment": "App 小组分配",
+    "Select the App Groups you wish to assign to the bundle.": "选择你要分配给套装的 App 小组。",
+    "Select All": "全选",
+    "of": "/",
+    "item(s) selected": "项已选择",
+    "Close Modal": "关闭弹窗",
+    "Merchant ID Assignment": "商家 ID 分配",
+    "No Merchant ID Assignments are available.": "没有可用的商家 ID 分配。",
+    "Register a Merchant ID Assignment": "注册商家 ID 分配",
+    "iCloud Container Assignment": "iCloud 容器分配",
+    "No iCloud Container Assignments are available.": "没有可用的 iCloud 容器分配。",
+    "Register an iCloud Container Assignment": "注册 iCloud 容器分配",
+    "Apple Push Notification service SSL Certificates": "Apple 推送通知服务 SSL 证书",
+    "To configure push notifications for this App ID, a Client SSL Certificate that allows your notification server to connect to the Apple Push Notification Service is required. Each App ID requires its own Client SSL Certificate. Manage and generate your certificates below.": "要为此 App ID 配置推送通知，需要一个客户端 SSL 证书，使你的通知服务器能够连接到 Apple 推送通知服务。每个 App ID 都需要各自的客户端 SSL 证书。请在下方管理并生成你的证书。",
+    "Development SSL Certificate": "开发 SSL 证书",
+    "Production SSL Certificate": "生产 SSL 证书",
+    "Create an additional certificate to use for this": "为此创建另一个证书：",
+    "Create Certificate": "创建证书",
+    "Name:": "名称：",
+    "Type:": "类型：",
+    "Expires:": "到期日期：",
+    ": App ID Configuration": "：App ID 配置",
+    "If you're enabling an App ID for the first time or for a new app, enable the App ID as a primary. You can use primary App IDs on their own or to enable identifiers for related apps and websites through grouping. To enable an App ID for a related app, (for example, an App ID for the iOS version of your Mac app), group it with the existing primary. This will also ensure that users only need to provide consent to share their information with you once for each group of apps and websites.": "如果你是首次为 App ID 启用此功能，或是为新 App 启用，请将该 App ID 启用为主 App ID。你可以单独使用主 App ID，也可以通过分组，用它为相关的 App 和网站启用标识符。要为相关 App 启用 App ID（例如，你的 Mac App 的 iOS 版本所用的 App ID），请将其与现有的主 App ID 分组。这还能确保用户对每组 App 和网站只需同意向你共享其信息一次。",
+    "Group with an existing primary App ID": "与现有的主 App ID 分组",
+    "Server-to-Server Notification Endpoint": "服务器到服务器通知端点",
+    "Sign in with Apple server-to-server notifications allow you to receive important updates about your users and their accounts. Notifications are sent for each app group when users change mail forwarding preferences, delete their app account, or permanently delete their Apple Account.": "“通过 Apple 登录”的服务器到服务器通知可让你接收有关用户及其账户的重要更新。当用户更改邮件转发偏好设置、删除其 App 账户或永久删除其 Apple 账户时，系统会针对每个 App 小组发送通知。",
+    "Each group of apps can have one URL, which must be absolute and include the scheme, host, and path. TLS 1.2 or higher is required to receive notifications.": "每组 App 可以有一个 URL，该 URL 必须是绝对地址，并包含协议、主机和路径。接收通知需要 TLS 1.2 或更高版本。",
+    "Learn more.": "进一步了解。",
+    "Example: https://example.com/path/to/endpoint": "示例：https://example.com/path/to/endpoint",
+    "Generate a Provisioning Profile": "生成预置描述文件",
+    "Select Type": "选择类型",
+    "Select an App ID": "选择 App ID",
+    "If you plan to use services such as Game Center, In-App Purchase, and Push Notifications, or want a Bundle ID unique to a single app, use an explicit App ID. If you want to create one provisioning profile for multiple apps or don't need a specific Bundle ID, select a wildcard App ID. Wildcard App IDs use an asterisk (*) as the last digit in the Bundle ID field.": "如果你计划使用 Game Center、App 内购买项目和推送通知等服务，或需要单个 App 专用的套装 ID，请使用精确的 App ID。如果你想为多个 App 创建一个预置描述文件，或不需要特定的套装 ID，请选择通配符 App ID。通配符 App ID 在套装 ID 栏位中以星号 (*) 作为最后一位。",
+    "Provisioning Profile Configuration": "预置描述文件配置",
+    "Apps signed with development and adhoc provisioning profiles must connect to ppq.apple.com during app installation or first launch. Create an offline profile if you need to build and run without an active internet connection.": "使用开发和 Ad Hoc 预置描述文件签名的 App，在安装或首次启动期间必须连接到 ppq.apple.com。如果你需要在没有有效互联网连接的情况下构建和运行，请创建离线描述文件。",
+    "Offline support (7 day validity)": "离线支持（7 天有效期）",
+    "Select Certificates": "选择证书",
+    "Select the certificates you wish to include in this provisioning profile. To use this profile to install an app, the certificate the app was signed with must be included.": "选择你要包含在此预置描述文件中的证书。要使用此描述文件安装 App，必须包含该 App 签名所用的证书。",
+    "For use in Xcode 11 or later": "适用于 Xcode 11 或更高版本",
+    "Select Devices": "选择设备",
+    "Select the devices you wish to include in this provisioning profile. To install an app signed with this profile on a device, the device must be included.": "选择你要包含在此预置描述文件中的设备。要在设备上安装使用此描述文件签名的 App，必须包含该设备。",
+    "Include Mac Devices": "包含 Mac 设备",
+    "Review, Name and Generate.": "检查、命名并生成。",
+    "The name you provide will be used to identify the profile in the portal.": "你提供的名称将用于在门户中标识该描述文件。",
+    "Provisioning Profile Name": "预置描述文件名称",
+    "usage": "使用情况",
+    "Map Views": "地图视图",
+    "Current Month Overview": "本月概览",
+    "Daily Quota": "每日配额",
+    "Quota Usage To Date": "截至目前的配额使用情况",
+    "Service Calls": "服务调用",
+    "Snapshots": "快照",
+    "Look Around Initializations": "Look Around 初始化",
+    "Usage data is displayed in GMT": "使用情况数据以 GMT 显示",
+    "Usage": "使用情况",
+    "Usage Dashboard": "使用情况仪表板",
+    "Tokens": "令牌",
+    "Account & Organizational Data Sharing: Configuration": "账户和组织数据共享：配置",
+    "Configuring your apps and websites with Account & Organizational Data Sharing lets you securely request access to your users' Apple Account information.": "使用“账户和组织数据共享”配置你的 App 和网站，可让你安全地请求访问用户的 Apple 账户信息。",
+    "Configurations": "配置",
+    "Get Started with Account & Organizational Data Sharing": "开始使用“账户和组织数据共享”",
+    "Allow sharing of Apple Account and/or organizational information with your apps and associated websites so they can connect to your services securely and easily.": "允许与你的 App 和关联网站共享 Apple 账户和/或组织信息，以便它们安全、轻松地连接到你的服务。",
+    "Add new configuration": "添加新配置",
+    "Configure Sign in with Apple for Email Communication": "配置“通过 Apple 登录”（电子邮件通信）",
+    "In order to contact users that use Apple's private email relay service, you must register email sources that your organization will use for communication. Domains and domains associated with email addresses must comply with Sender Policy Framework or DKIM standards.": "要联系使用 Apple 私人电子邮件中转服务的用户，你必须注册你的组织用于通信的电子邮件来源。域名以及与电子邮件地址关联的域名必须符合发件人策略框架 (SPF) 或 DKIM 标准。",
+    "Settings": "设置",
+    "Email Sources": "电子邮件来源",
+    "All Sources": "所有来源",
+    "Domain": "域名",
+    "Email address": "电子邮件地址",
+    "No result found.": "未找到结果。",
+    "View Key": "查看密钥",
+    "Configure Key": "配置密钥",
+    "Define the configuration for your push notification service key by selecting the supported environment, scope restriction, and when necessary a list of eligible topics. Review Account Help for more information on key and topic registration limits.": "通过选择支持的环境、范围限制，并在必要时选择符合条件的主题列表，来定义推送通知服务密钥的配置。有关密钥和主题注册数量限制的更多信息，请参阅开发者账户帮助。",
+    "The APNs configuration for accessible environment and key restriction type can't be changed once saved.": "可访问环境和密钥限制类型的 APNs 配置一经存储便无法更改。",
+    "Environment": "环境",
+    "Sandbox & Production": "沙盒和生产",
+    "Key Restriction": "密钥限制",
+    "Team Scoped (All Topics)": "团队范围（所有主题）",
+    "Topic Specific": "特定主题",
+    "This service must have one identifier configured.": "此服务必须配置一个标识符。",
+    "This service must have environment and type configured": "此服务必须配置环境和类型",
+    "Create a key for each of your primary App IDs in order to implement Sign in with Apple. This key will also be used for any App IDs grouped with the primary. The user will see your primary app's icon at sign in and in their Apple ID account settings.": "为你的每个主 App ID 创建一个密钥，以实现“通过 Apple 登录”。此密钥也将用于与主 App ID 分组的所有 App ID。用户在登录时以及在其 Apple ID 账户设置中，会看到你的主 App 的图标。",
+    "Primary App ID": "主 App ID"
   };
   // ==DICT END==
 
@@ -830,6 +984,25 @@
         return p === null ? null : `${p}：${value}`;
       },
     ],
+    // 多选计数："1 of 5 item(s) selected"（React 常拆成多个相邻文本节点，由 processJoined 拼接后命中）
+    [/^(\d+) of (\d+) items?(?:\(s\))? selected$/i, (m, a, b) => `已选择 ${a}/${b} 项`],
+    // "6 App IDs" / "1 App ID"
+    [/^(\d[\d,]*) App IDs?$/, (m, n) => `${n} 个 App ID`],
+    // "1 Selected"
+    [/^(\d+) Selected$/i, (m, n) => `已选择 ${n} 项`],
+    // 短日期（无年份，图表坐标轴）："Sep 16"、"Oct 04"；带区间/年份的串由前面的规则覆盖
+    [
+      new RegExp('^' + DATE_PART + '$'),
+      (m, mon, day) => {
+        const mm = monthNum(mon);
+        return mm ? `${mm}月${Number(day)}日` : null;
+      },
+    ],
+    // react-select 读屏提示（aria-live）
+    [
+      /^(\d+) results? available\. Select is focused\s*,\s*type to refine list, press Down to open the menu,?$/i,
+      (m, n) => `有 ${n} 个结果。选择框已聚焦，输入可筛选，按下方向键打开菜单。`,
+    ],
     // 页面标题："Certificates, Identifiers & Profiles - Apple Developer"：前半必须在词典中
     [
       /^(.+?) - Apple Developer$/,
@@ -851,12 +1024,13 @@
         }
         return items.map((it) => lookup(it)).join('、');
       },
+      'list',
     ],
   ];
 
-  /** 相邻文本节点拼接后只查词典（不走规则）；texts 为各文本节点原值，未命中返回 null */
+  /** 相邻文本节点拼接后走词典 + 规则（排除逗号列表规则）；texts 为各文本节点原值，未命中返回 null */
   function translateJoined(texts) {
-    return lookup(normalize(texts.join('')));
+    return translateNorm(normalize(texts.join('')), { skipList: true });
   }
 
   const PLATFORMS = new Set(['iOS', 'iPadOS', 'macOS', 'tvOS', 'watchOS', 'visionOS']);
@@ -864,12 +1038,12 @@
   /** 漏译候选判断（纯函数）：像界面文案则返回规范化文本，否则返回 null */
   function missingCandidate(raw) {
     const s = normalize(raw);
-    if (s.length < 2 || s.length > 200) return null;
+    if (s.length < 2 || s.length > 2000) return null;
     if (!/[A-Za-z]/.test(s) || /[぀-ヿ一-鿿]/.test(s)) return null;
     if (!/^[A-Za-z0-9"'(]/.test(s)) return null;
     if (/https?:|\/\/|@|[{}<>=_\\|]/.test(s)) return null;
-    if (s.split(' ').length > 30) return null;
     if (/^[A-Z0-9]{8,}$/.test(s)) return null;                 // 团队 ID/序列号
+    if (/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{16}$/.test(s) || /^[0-9A-Fa-f]{8}(-[0-9A-Fa-f]{4}){3}-[0-9A-Fa-f]{12}$/.test(s)) return null; // UDID/UUID
     if (s.split(/[,/\s]+/).filter(Boolean).every((w) => PLATFORMS.has(w))) return null; // 平台名/平台列表
     if (!s.includes(' ') && s.includes('.')) return null;      // Bundle ID、entitlement key
     if (!s.includes(' ') && /^[a-z0-9]+(?:-[a-z0-9]+)+$/.test(s)) return null; // aps-environment 之类
@@ -877,11 +1051,12 @@
   }
 
   /** 翻译一段已规范化的文本；未命中返回 null */
-  function translateNorm(norm) {
+  function translateNorm(norm, opts) {
     if (!norm) return null;
     const hit = lookup(norm);
     if (hit !== null) return hit;
-    for (const [re, rep] of RULES) {
+    for (const [re, rep, tag] of RULES) {
+      if (opts && opts.skipList && tag === 'list') continue;   // 拼接句不走逗号列表规则
       const m = re.exec(norm);
       if (!m) continue;
       const out = typeof rep === 'function' ? rep(...m) : norm.replace(re, rep);
@@ -1026,20 +1201,22 @@
   function processJoined(el) {
     const kids = el.childNodes;
     if (kids.length < 2) return;
-    const nonEmpty = [];
+    const all = [];
+    let nonEmptyCount = 0;
     for (const k of kids) {
       if (k.nodeType !== 3) return;
-      if (normalize(k.nodeValue) !== '') nonEmpty.push(k);
+      all.push(k);
+      if (normalize(k.nodeValue) !== '') nonEmptyCount++;
     }
-    if (nonEmpty.length < 2) return;
-    const texts = nonEmpty.map((k) => k.nodeValue);
+    if (nonEmptyCount < 2) return;
+    // 拼接时包含纯空白节点（如 "1" " of " "5" " " "item(s) selected" 中间的空格）
+    const texts = all.map((k) => k.nodeValue);
+    const whole = texts.join('');
     const tr = translateJoined(texts);
     if (tr === null) return;
-    const first = nonEmpty[0];
-    const lead = /^\s*/.exec(texts[0])[0];
-    const trail = /\s*$/.exec(texts[texts.length - 1])[0];
-    const out = lead + tr + trail;
-    nonEmpty.forEach((k, i) => {
+    const first = all.find((k) => normalize(k.nodeValue) !== '');
+    const out = /^\s*/.exec(whole)[0] + tr + /\s*$/.exec(whole)[0];
+    all.forEach((k, i) => {
       textState.set(k, { orig: texts[i], tr: k === first ? out : '' });
       k.nodeValue = k === first ? out : '';
     });
